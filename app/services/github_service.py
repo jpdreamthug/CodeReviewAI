@@ -35,21 +35,18 @@ class GitHubService:
             response = requests.get(api_url, headers=headers)
             response.raise_for_status()
             content = response.json()
-
             for item in content:
                 local_path = os.path.join(output_directory, item["path"])
-
                 if item["type"] == "dir":
                     os.makedirs(local_path, exist_ok=True)
                     download_files(item["path"])
                 elif item["type"] == "file":
+                    downloaded_files.append(item["path"])
                     file_response = requests.get(item["download_url"], headers=headers)
                     os.makedirs(os.path.dirname(local_path), exist_ok=True)
                     with open(local_path, "wb") as file:
                         file.write(file_response.content)
-                    downloaded_files.append(local_path)
 
         os.makedirs(output_directory, exist_ok=True)
         download_files()
-
         return downloaded_files
