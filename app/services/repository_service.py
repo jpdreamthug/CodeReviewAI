@@ -11,8 +11,8 @@ class RepositoryService:
 
     @staticmethod
     async def process_repository(github_url: str) -> dict:
-        repo_folder = f"./temp_repos/{uuid.uuid4()}"
-        merged_file = f"./temp_repos/{uuid.uuid4()}_merged.md"
+        repo_folder = f"../temp_repos/{uuid.uuid4()}"
+        merged_file = f"../temp_repos/{uuid.uuid4()}_merged.md"
 
         os.makedirs(os.path.dirname(merged_file), exist_ok=True)
 
