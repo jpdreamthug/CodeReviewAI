@@ -42,7 +42,8 @@ class OpenAIService:
             )
 
             response = await client.chat.completions.create(
-                model="gpt-4", messages=[{"role": "user", "content": formatted_prompt}]
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": formatted_prompt}],
             )
 
             result = response.choices[0].message.content
