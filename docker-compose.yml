@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    volumes:
+      - ./temp_repos:/app/temp_repos
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
