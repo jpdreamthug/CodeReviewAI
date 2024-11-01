@@ -16,7 +16,7 @@ class RepositoryService:
 
         os.makedirs(os.path.dirname(merged_file), exist_ok=True)
 
-        found_files = GitHubService.download_github_repo(
+        found_files = await GitHubService.download_github_repo(
             github_url=str(github_url),
             token=settings.GITHUB_TOKEN,
             output_directory=repo_folder
