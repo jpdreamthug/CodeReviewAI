@@ -21,3 +21,7 @@ ENV/
 temp_repos/
 
 .DS_Store
+
+# Logs
+logs/
+*.log

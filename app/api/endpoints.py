@@ -16,7 +16,7 @@ async def review_code(request: ReviewRequest):
     response_from_ai = await OpenAIService.get_response(
         task_description=request.assignment_description,
         file_path=processing_result["merged_filepath"],
-        level=request.candidate_level
+        level=request.candidate_level,
     )
 
     return [processing_result["found_files"], response_from_ai]

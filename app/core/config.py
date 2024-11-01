@@ -10,9 +10,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "ERROR"
     TEMP_DIR: str = "../temp_repos"
 
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8"
-    )
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+
 
 settings = Settings()
